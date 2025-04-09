@@ -1,0 +1,43 @@
+public class question {
+    private String name;
+    private int age;
+    private int[] arr = new int[5];
+
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    String getName() {
+        return this.name;
+    }
+    
+    void setAge(int age) {
+        this.age = age;
+    }
+
+    int getAge() {
+        return this.age;
+    }
+
+
+    void setArr(int[] arr) {
+        if (arr.length == 5) {
+            this.arr = arr;
+        } else {
+            System.out.println("Array must have exactly 5 elements.");
+        }
+    }
+
+
+    int[] getArr() {
+        return this.arr;
+    }
+
+    void printArr() {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
