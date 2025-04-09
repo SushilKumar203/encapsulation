@@ -1,0 +1,114 @@
+import java.util.Scanner;
+public class quest {
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double discount=0;
+        System.out.println("Enter the amount: ");
+        double amount= input.nextInt();
+        input.nextLine();
+
+        System.out.println("Enter the member: ");
+        String name= input.nextLine();
+        name= name.toLowerCase();
+        if(amount>500 && name.equals("premium member")){
+            discount= 0.25;
+        }else if (amount> 500){
+            discount=0.15;
+        }else if(amount>= 200 && amount<=500){
+            discount= 0.10;
+        }else{
+            discount=0;
+        }
+
+        amount = amount -(amount*discount);
+        System.out.println("Amount: "+amount);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+public class quest {
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+        int[][] arr={
+                {2, 4, 6, 8},
+                {1, 3, 5, 7},
+                {9, 11, 13, 15},
+                {10, 12, 14, 16}
+        };
+
+        //1
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        //2
+        System.out.println("Main diagnol");
+        for(int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (i == j) {
+                    System.out.println(arr[i][j] + " ");
+                }
+            }
+        }
+
+        //3
+        for(int i =0; i< arr.length;i++ ){
+            int sum=0;
+            for(int j =0 ; j< arr[i].length; j++){
+                sum= sum+ arr[i][j];
+
+            }
+            System.out.println("The sum of row "+ i + " is: "+ sum);
+        }
+
+        //4
+        int max= arr[0][0];
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length; j++){
+                if(max<arr[i][j]){
+                    max= arr[i][j];
+                }
+            }
+        }
+        System.out.println("The max elemnt in the Matrix is: "+ max);
+
+        //5;
+        int count=0;
+        int sum=0;
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length; j++){
+                int number= arr[i][j];
+                if(number % 2 ==0){
+                    count+=1;
+                    sum+=number;
+
+                }
+            }}
+            System.out.println("The count of number is: "+count);
+            System.out.println("The sum of number is: "+ sum);
+
+
+
+        }
+        }
+
+
+
+
