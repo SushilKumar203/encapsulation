@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class encap {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        question obj = new question();
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        obj.setName(name);
+
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+        obj.setAge(age);
+
+        int[] arr = new int[5];
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter value for arr[" + i + "]: ");
+            arr[i] = scanner.nextInt();
+        }
+
+        obj.setArr(arr);
+
+        System.out.println("\nName: " + obj.getName());
+        System.out.println("Age: " + obj.getAge());
+
+        System.out.print("Array values: ");
+        for (int value : obj.getArr()) {
+            System.out.print(value + " ");
+        }
+    }
+}
