@@ -1,1 +1,182 @@
 
+import java.util.Scanner;
+
+public class quest {
+    public static void main(String[] args) {
+        int[][] matrix = {
+                {5, 8, 3},
+                {6, 7, 2},
+                {4, 9, 1}
+        };
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Print the matrix
+        System.out.println("Original Matrix:");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // 2. Transpose of the matrix
+        int[][] transpose = new int[3][3];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+
+        System.out.println("\nTranspose of the Matrix:");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(transpose[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // 3. Sum of diagonals
+        int first = 0;
+        int second = 0;
+        for (int i = 0; i < 3; i++) {
+            first += matrix[i][i];  // Main diagonal
+            second += matrix[i][2 - i];  // Anti-diagonal
+        }
+        System.out.println("\nSum of main diagonal: " + first);
+        System.out.println("Sum of anti-diagonal: " + second);
+
+        // 4. Check for symmetry
+        int num = 1;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] != transpose[i][j]) {
+                    num = 0; // Not symmetric
+                    break;
+                }
+            }
+            if (num == 0) {
+                break; // Exit loop early if not symmetric
+            }
+        }
+
+        if (num == 1) {
+            System.out.println("\nThe matrix is symmetric.");
+        } else {
+            System.out.println("\nThe matrix is not symmetric.");
+        }
+
+        // 5. Find smallest and largest elements in transpose
+        int smallest = transpose[0][0];
+        int largest = transpose[0][0];
+        for (int i = 0; i < transpose.length; i++) {
+            for (int j = 0; j < transpose[i].length; j++) {
+                if (transpose[i][j] < smallest) {
+                    smallest = transpose[i][j];
+                }
+                if (transpose[i][j] > largest) {
+                    largest = transpose[i][j];
+                }
+            }
+        }
+
+        System.out.println("\nSmallest element in transpose: " + smallest);
+        System.out.println("Largest element in transpose: " + largest);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class quest {
+    static int books = 50;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int choice = 0;
+        char continueChoice;  // Variable to store user choice for continuation
+
+        do {
+            // Display the menu
+            System.out.print("\n1: View Available books\n");
+            System.out.print("2: Borrow Book\n");
+            System.out.print("3: Return Book\n");
+            System.out.print("4: Exit\n");
+            System.out.print("Enter the choice: ");
+            choice = scanner.nextInt();
+
+            // Switch case for the user's choice
+            switch (choice) {
+                case 1: {
+                    AvailableBook();
+                    break;
+                }
+                case 2: {
+                    BorrowBooks();
+                    break;
+                }
+                case 3: {
+                    ReturnBook();
+                    break;
+                }
+                case 4: {
+                    System.out.println("Exiting...");
+                    break;
+                }
+                default: {
+                    System.out.println("Invalid choice. Please try again.");
+                }
+            }
+
+            // Ask if the user wants to continue
+            if (choice != 4) {
+                System.out.print("\nDo you want to continue? (Y/N): ");
+                continueChoice = scanner.next().charAt(0);  // Get the first character of the input
+            } else {
+                continueChoice = 'N';  // Exit if the user selects option 4
+            }
+
+        } while (continueChoice == 'Y' || continueChoice == 'y');  // Keep going if user inputs 'Y' or 'y'
+
+        scanner.close();  // Close scanner to avoid resource leak
+    }
+
+    static void AvailableBook() {
+        System.out.println("Total Books: " + books);
+    }
+
+    static void BorrowBooks() {
+        if (books > 0) {
+            System.out.println("Book has been borrowed...");
+            books -= 1;
+        } else {
+            System.out.println("Books are not available");
+        }
+    }
+
+    static void ReturnBook() {
+        books += 1;
+        System.out.println("Book has been returned successfully...");
+    }
+}
+
