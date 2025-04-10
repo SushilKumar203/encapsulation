@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class quest {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[10];
+
+        int n = 0;
+        while(n < 10){
+            int num;
+            while (true) {
+                System.out.print("Enter a positive number: ");
+                num = scanner.nextInt();
+                if (num >= 0) {
+                    break;
+                }
+                System.out.println("Negative numbers are not allowed. Try again.");
+            }
+            arr[n] = num;
+            n++;
+        }
+
+        int even = 0, odd = 0, sum = 0;
+        int largest = arr[0];
+        int smallest = arr[0];
+
+        for(int i = 0; i < 10; i++){
+            int num = arr[i];
+            sum += num;
+
+            if(largest < num){
+                largest = num;
+            }
+            if(smallest > num){
+                smallest = num;
+            }
+            if(num % 2 == 0){
+                even += 1;
+            } else {
+                odd += 1;
+            }
+        }
+
+        System.out.println("\nArray elements:");
+        for(int i = 0; i < 10; i++){
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.println("\nThe largest number is: " + largest);
+        System.out.println("The smallest number is: " + smallest);
+        System.out.println("The number of even numbers: " + even);
+        System.out.println("The number of odd numbers: " + odd);
+        System.out.println("The total sum is: " + sum);
+    }
+}
