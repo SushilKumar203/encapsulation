@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class quest {
+    static int maxSpots = 10;
+    static int parkedCars = 0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n1: Park a car");
+            System.out.println("2: Remove a car");
+            System.out.println("3: Check Available Parking Spots");
+            System.out.println("4: Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    parkCar();
+                    break;
+                case 2:
+                    removeCar();
+                    break;
+                case 3:
+                    checkAvailable();
+                    break;
+                case 4:
+                    System.out.println("Exiting the program.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+
+        } while (choice != 4);
+    }
+
+    static void parkCar() {
+        if (parkedCars < maxSpots) {
+            parkedCars++;
+            System.out.println("A car has been parked. Total parked cars: " + parkedCars);
+        } else {
+            System.out.println("The parking lot is full. Cannot park any more cars.");
+        }
+    }
+
+    static void removeCar() {
+        if (parkedCars > 0) {
+            parkedCars--;
+            System.out.println("A car has been removed. Total parked cars: " + parkedCars);
+        } else {
+            System.out.println("No cars in the lot to remove.");
+        }
+    }
+
+    static void checkAvailable() {
+        System.out.println("Available parking spots: " + (maxSpots - parkedCars));
+    }
+}
